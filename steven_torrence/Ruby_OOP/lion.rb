@@ -24,6 +24,7 @@ class Lion < Mammal
     end
 
     def display_health
+        super
         p "This is a lion and it's health is #{@health}"
     end
 end
