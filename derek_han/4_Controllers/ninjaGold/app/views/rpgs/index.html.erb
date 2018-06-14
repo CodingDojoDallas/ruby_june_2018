@@ -49,14 +49,18 @@
                 </form>
             </div>
             <p>Activities:</p>
-            <div class="activities">
+            <div class="activities" style="overflow-y: scroll;">
                 <ul>
-                    {% for i in request.session.activity %}
-                    <li>{{ i }}</li>
-                    {% endfor %}
+                    <% if session[:activities].any? %>
+                        <% session[:activities].reverse_each do |act| %>
+                            <p class= "<%= act["color"] %>"> <%= act["message"] %></p>
+                        <% end %>
+                    <% end %>
                 </ul>
             </div>
-            <form action="/clear">
+            <form action="/rpgs/clear" method="POST">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="_method" value="delete">
                 <input class="button" type="submit" value="Clear">
             </form>
         </div>
