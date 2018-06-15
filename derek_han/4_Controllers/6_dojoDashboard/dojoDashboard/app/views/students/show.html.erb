@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<title>Dojo Detail</title>
+</head>
+<body>
+	<div style="width: 70%; margin: 10% auto; border: thin solid gray; border-radius: 5px; padding: 3%;">
+		<h1><%= @dojo.branch %> <small><%= @student.first_name %> <%= @student.last_name %></small></h1>
+		<h4>Email: <%= @student.email %></h4>
+		<hr>
+		<hr><h3>Cohort</h3>
+	<div class="table-responsive">
+		<table class="table table-striped" >
+			<thead class="thead-dark">
+				<th scope="col">Frist Name</th>
+				<th scope="col">Last Name</th>
+				<th scope="col">Email</th>
+			</thead>
+			<tbody>
+				<% @students.each do |st| %>
+					<% if @student.id != st.id %>
+					<tr>
+						<th scope="row"><%= st.first_name %></th>
+						<td><%= st.last_name %></td>
+						<td><%= st.email %></td>
+					</tr>
+					<%end%>
+				<%end%>
+
+			</tbody>
+		</table>
+	<div>
+		<p class="text-center"><a href="/dojos">Home</a> | 
+		<a href="/dojos/<%= @student.dojo_id %>/students/<%= @student.id %>/edit">Edit</a></p>
+	</div>
+	</div>
+</body>
+</html>

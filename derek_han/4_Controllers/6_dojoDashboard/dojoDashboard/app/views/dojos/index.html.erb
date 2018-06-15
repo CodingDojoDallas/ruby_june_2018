@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<title>Dojo Listing</title>
+</head>
+<body>
+<h1 class="text-center">Listing <%= @dojos.count %></h1>
+	<div class="table-responsive">
+		<table class="table table-striped" >
+			<thead class="thead-dark">
+				<th scope="col">Branch</th>
+				<th scope="col">Street</th>
+				<th scope="col">City</th>
+				<th scope="col">State</th>
+				<th scope="col">Actions</th>
+
+			</thead>
+			<tbody>
+				<% @dojos.each do |dojo| %>
+					<tr>
+						<td><%= dojo.branch %></td>
+						<td><%= dojo.street %></td>
+						<td><%= dojo.city %></td>
+						<td><%= dojo.state %></td>
+						<td><a href="/dojos/<%= dojo.id %>">Show</a> | 
+							<a href="/dojos/<%= dojo.id %>/edit">Edit</a> |
+							<a rel="nofollow" data-method="delete" href="/dojos/<%= dojo.id %>">Destroy</a>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+<a href="/dojos/new" class="text-center"><h4>New Dojo</h4></a>
+<!-- <a href="/dojos/new" class="text-center"><h4>Add Student</h4></a> -->
+</body>
+</html>
+
+

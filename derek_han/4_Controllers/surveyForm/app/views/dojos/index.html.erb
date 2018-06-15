@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Survey Form</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<div id='wrapper' >
+		<form action="/dojos/result" method="">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+
+			<div class="form-group">
+	  			<label for="exampleFormControlInput1">Your name: </label>
+	  			<input type="text" class="form-control" id="exampleFormControlInput1" name=[yourname] value="HI! :D">
+	  		</div>
+
+	  		<div class="form-group">
+			  	<label for="exampleFormControlInput2">Dojo Location: </label>
+			  	<select name=[location] class="form-control" id="exampleFormControlSelect1">
+				  <option value="silicon_valley">Silicon Valley</option>
+				  <option value="seattle">Seattle</option>
+				  <option value="los_angeles">Los Angeles</option>
+				  <option value="dallas">Dallas</option>
+				  <option value="tulsa">Tulsa</option>
+				  <option value="chicago">Chicago</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput3">Favotrite Language: </label>
+				<select name=[language] class="form-control" id="exampleFormControlSelect2">
+				  <option value="javascript">JavaScript</option>
+				  <option value="python">TYTHON</option>
+				  <option value="mean">MEAN</option>
+				  <option value="net">C#, .NET</option>
+				  <option value="ruby">RUBY</option>
+				  <option value="java">JAVA</option>
+				</select>
+			</div>
+			<div class="form-group">
+	  			<label for="exampleFormControlTextarea1">Comment (optional): </label>
+	  			<textarea name=[comment] class="form-control-file" id="exampleFormControlFile1"></textarea> 
+	  		</div>
+
+	  		<input type="submit" value="Submit">
+		</form> 
+	</div>
+</body>
+</html>
