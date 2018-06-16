@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show User</title>
+</head>
+<body>
+    <main>
+		<div id="user_info">
+			<h1> Welcome, <%= @user.first_name %> <%= @user.last_name %>  </h1> 
+			<h3> Email: <%= @user.email %> </h3>
+			<a href="<%= edit_user_path(@user.id) %>"> Edit </a>
+		</div>
+	</main>
+</body>
+</html>
