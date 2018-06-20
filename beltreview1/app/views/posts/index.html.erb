@@ -1,0 +1,56 @@
+<h1>Hi <%= current_user.name %></h1>
+<a href='/logout'>Logout</a>
+<hr />
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+  <p>
+    <%= error %>
+  </p>
+    <% end %>
+<% end %>
+
+<form action='/posts' method="post">
+<input name="authenticity_token" value='<%= form_authenticity_token %>' type='hidden' />
+<input type='hidden' name='post[user_id]' value="<%= current_user.id %>">
+<textarea rows='6' cols='80' name='post[message]'>Post Something....</textarea>
+<input type='submit' value='Idea!' />
+</form>
+
+<% @posts.each do |post| %>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="user/<%= post.user.id %>/show"> <%= post.user.name %> </a> Says:</td>
+      <td> <%= post.message %></td>
+        <% if post.user_id == current_user.id %>
+      <td><a href='/delete/<%=post.id%>'  data-method='delete'>Delete your post</a></td>
+        <% end %>
+    </tr>
+    <td>
+        <%= if post.users_liked.include?(current_user) %>
+
+          <form action='/user/<%=current_user.id %>/posts/<%= post.id%>/unlike' method='post'>
+            <input name="authenticity_token" value='<%= form_authenticity_token %>' type='hidden' />
+            <input type='hidden' name ='_method' value='delete'>
+            <input type='hidden' name='like[post_id]' value='<%= post.id %>'>
+            <input type='hidden' name='like[user_id]' value='<%= current_user.id%>'>
+            <input type='submit' value='Unlike' />
+          </form>
+
+        <% else %>
+        <form action='/likes' method='post'>
+          <input name="authenticity_token" value='<%= form_authenticity_token %>' type='hidden' />
+          <input type='hidden' name='like[post_id]' value='<%= post.id %>'>
+          <input type='hidden' name='like[user_id]' value='<%= current_user.id%>'>
+          <input type='submit' value='like' />
+        </form>
+        <% end %>
+
+    </td>
+    <td> <a href='/posts/<%= post.id %>/show'><%= post.users_liked.count %> People Liked this </a></td>
+  </tbody>
+</table>
+<hr />
+<% end %>

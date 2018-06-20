@@ -1,0 +1,9 @@
+
+<h3>Name: <%= @user.name %></h3>
+<h3>Alias: <%= @user.alias %></h3>
+<h3>Email: <%= @user.email %></h3>
+<a href='/logout'>Logout |</a>
+<a href='/posts/<%= current_user.id %>'>Back to Ideas</a>
+<hr />
+<h3>Total number of Post: <%= @user.posts.count %></h3>
+<h3>Total number of Likes: <%= @user.likes.count %></h3>

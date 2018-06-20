@@ -1,0 +1,24 @@
+<h1>Edit Your Profile</h1>
+<a href='/logout'>Logout</a>
+<hr />
+<form action="/update/<%= current_user.id %>" method='post'>
+<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<input type='hidden' name ='_method' value='put'>
+  <table>
+         <tbody>
+           <tr>
+            <td>First Name:</td>
+            <td><input type='text' name='user[name]' value='<%= current_user.name %>' /> </td>
+           </tr>
+           <tr>
+            <td>Last Name:</td>
+            <td><input type='text' name='user[alias]' value='<%= current_user.alias %>' /> </td>
+           </tr>
+           <tr>
+            <td>Email:</td>
+            <td><input type='text' name='user[email]' value='<%= current_user.email %>'/> </td>
+           </tr>
+        </tbody>
+  </table>
+  <input type='submit' value='Update' />
+</form>
