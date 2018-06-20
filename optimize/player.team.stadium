@@ -1,0 +1,37 @@
++----+-------------------+-------------------+-------------------+-------------------+--------------------+
+| id | name              | mascot            | stadium           | created_at        | updated_at         |
++----+-------------------+-------------------+-------------------+-------------------+--------------------+
+| 1  | Atlanta Hawks     | Skyhawk           | Philips Arena     | 2018-06-12 20:... | 2018-06-12 20:2... |
+| 2  | Atlanta Hawks     | Skyhawk           | Philips Arena     | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 3  | Atlanta Hawks     | Skyhawk           | Philips Arena     | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 4  | Boston Celtics    | Lucky the Lepr... | TD Garden         | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 5  | Brooklyn Nets     | BrooklyKnight     | Barclays Center   | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 6  | Charlotte Hornets | Hugo the Hornet   | Spectrum Center   | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 7  | Chicago Bulls     | Benny the Bull    | United Center     | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 8  | Cleveland Cava... | Moondog           | Quicken Loans ... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 9  | Dallas Mavericks  | Champ             | American Airli... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 10 | Denver Nuggets    | Rocky the Moun... | Pepsi Center      | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 11 | Detroit Pistons   | Hooper            | The Palace of ... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 12 | Golden State W... | Thunder           | Oracle Arena      | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 13 | Houston Rockets   | Clutch            | Toyota Center     | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 14 | Indiana Pacers    | Boomer the Pan... | Bankers Life F... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 15 | Los Angeles Cl... | Chuck             | Staples Center    | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 16 | Los Angeles La... | Jack Nicholson    | Staples Center    | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 17 | Memphis Grizzlies | Griz              | FedExForum        | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 18 | Miami Heat        | Burnie            | American Airli... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 19 | Milwaukee Bucks   | Bango             | BMO Harris Bra... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 20 | Minnesota Timb... | Crunch the Wolf   | Target Center     | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 21 | New Orleans Pe... | Pierre the Pel... | Smoothie King ... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 22 | New York Knicks   | Spike Lee         | Madison Square... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 23 | Oklahoma City ... | Rumble the Bison  | Chesapeake Ene... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 24 | Orlando Magic     | Stuff the Magi... | Amway Center      | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 25 | Philadelphia 7... | Franklin the Dog  | Wells Fargo Ce... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 26 | Phoenix Suns      | The Suns Gorilla  | Talking Stick ... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 27 | Portland Trail... | Blaze the Trai... | Moda Center       | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 28 | Sacramento Kings  | Slamson the Lion  | Golden 1 Center   | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 29 | San Antonio Spurs | The Coyote        | AT&T Center       | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 30 | Toronto Raptors   | Raptor            | Air Canada Centre | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 31 | Utah Jazz         | Jazz Bear         | Vivint Smart H... | 2018-06-12 20:... | 2018-06-12 20:4... |
+| 32 | Washington Wiz... | G. Wiz            | Verizon Center    | 2018-06-12 20:... | 2018-06-12 20:4... |
++----+-------------------+-------------------+-------------------+-------------------+--------------------+
+32 rows in set
