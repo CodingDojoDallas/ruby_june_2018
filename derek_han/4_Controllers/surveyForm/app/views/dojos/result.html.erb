@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" class="gr__getbootstrap_com">
+<head>
+	<title>Result</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<div role="main" class="container" >
+		
+		<p>Thanks for submitting this form! You have submitted this form <%= session[:count] %> times now.</p>
+	</div>
+
+	<div id="wrapper">
+		<div id="content" class="form-group">
+			<p>Your Name: <%= session[:yourname] %></p>
+			<p>Dojo Location: <%= session[:location] %></p>
+			<p>Favourite Laguage: <%= session[:language] %></p>
+			<p>Comment (optional): <%= session[:comment] %></p>
+			<button onclick="goBack()">Go Back</button>
+		</div>
+	</div>
+
+	<script>
+	function goBack() {
+    window.history.back();
+	}
+</script>
+</body>
+</html>
