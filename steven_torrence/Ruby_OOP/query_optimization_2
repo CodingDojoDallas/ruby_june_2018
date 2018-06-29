@@ -1,0 +1,41 @@
+1. Retrieve all players, then write a program that will loop through each player and display their team name, mascot and stadium. How many queries have we done?
+    
+    players = Player.all
+    players.each do |player|
+        p "Player name: #{player.name}, Player Team name: #{player.team.name}, Player Mascot: #{player.team.mascot}, Player Stadium: #{player.team.stadium}"
+    end
+
+2. Retrieve all players and write a program to loop through each player and their team name, mascot and stadium using .includes. How many queries have we done now?
+
+    players = Player.all
+    players.includes(:team).each do |player|
+        p "Player name: #{player.name}, Player Team name: #{player.team.name}, Player Mascot: #{player.team.mascot}, Player Stadium: #{player.team.stadium}"
+    end
+
+    We've only used two queries now as opposed to 500 for each player.
+
+3. Retrieve all players from the 'Chicago Bulls' by using .includes
+
+    players = Player.all
+    players.includes(:team).where("teams.name = 'Chicago Bulls'").references(:team)
+
+4. Retrieve all players along with the team name that play at the 'Staples Center'
+
+    Player.includes(:team).where("teams.stadium = 'Staples Center'").references(:team).each do |player|
+        p "Player name : #{player.name} and Team: #{player.team.name}"
+    end
+
+5. Retrieve all teams that have any player that start their name with the letter 'Z' by using .includes and .joins
+
+    players = Player.all
+    players.includes(:team).where("players.name LIKE 'z%'").references(:team).each do |player|
+        p "Player name: #{player.name} and Team: #{player.team.name}"
+    end
+
+    players.joins(:team).where("players.name LIKE 'z%'").each do |player|
+        p "Player name: #{player.name} and Team: #{player.team.name}"
+    end
+
+    players.joins(:team).includes(:team).where("players.name LIKE 'z%'").references(:team).each do |player|
+        p "Player name: #{player.name} and Team: #{player.team.name}"
+    end

@@ -1,0 +1,245 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww15820\viewh9620\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 vagrant@vagrant-ubuntu-trusty-64:/vagrant/ruby_oop/user_login_project$ rails c\
+Running via Spring preloader in process 9920\
+Loading development environment (Rails 4.2.7)\
+2.3.1 :001 > user1 = User.new\
+ => #<User id: nil, first_name: nil, last_name: nil, email: nil, age: nil, created_at: nil, updated_at: nil>\
+2.3.1 :002 > user1.valid?\
+ => false\
+2.3.1 :003 > user1.errors\
+ => #<ActiveModel::Errors:0x00000004425410 @base=#<User id: nil, first_name: nil, last_name: nil, email: nil, age: nil, created_at: nil, updated_at: nil>, @messages=\{:first_name=>["can't be blank", "is too short (minimum is 2 characters)"], :last_name=>["can't be blank", "is too short (minimum is 2 characters)"], :email=>["can't be blank"], :age=>["is not a number"]\}>\
+2.3.1 :004 > user1.errors.full_messages\
+ => ["First name can't be blank", "First name is too short (minimum is 2 characters)", "Last name can't be blank", "Last name is too short (minimum is 2 characters)", "Email can't be blank", "Age is not a number"]\
+2.3.1 :005 > User.create(first_name: "Steven", last_name: "Torrence", email: "storrence88@gmail.com", age: 5)\
+   (0.1ms)  begin transaction\
+   (0.1ms)  rollback transaction\
+ => #<User id: nil, first_name: "Steven", last_name: "Torrence", email: "storrence88@gmail.com", age: 5, created_at: nil, updated_at: nil>\
+2.3.1 :006 > users = User.all\
+  User Load (2.5ms)  SELECT "users".* FROM "users"\
+ => #<ActiveRecord::Relation []>\
+2.3.1 :007 > User.create(first_name: "Steven", last_name: "Torrence", email: "storrence88@gmail.com", age: 29)\
+   (0.1ms)  begin transaction\
+  SQL (11.3ms)  INSERT INTO "users" ("first_name", "last_name", "email", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Steven"], ["last_name", "Torrence"], ["email", "storrence88@gmail.com"], ["age", 29], ["created_at", "2018-06-07 13:20:47.654659"], ["updated_at", "2018-06-07 13:20:47.654659"]]\
+   (4.3ms)  commit transaction\
+ => #<User id: 1, first_name: "Steven", last_name: "Torrence", email: "storrence88@gmail.com", age: 29, created_at: "2018-06-07 13:20:47", updated_at: "2018-06-07 13:20:47">\
+2.3.1 :008 > first = User.first\
+  User Load (2.6ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1\
+ => #<User id: 1, first_name: "Steven", last_name: "Torrence", email: "storrence88@gmail.com", age: 29, created_at: "2018-06-07 13:20:47", updated_at: "2018-06-07 13:20:47">\
+2.3.1 :009 > hirb.enable\
+2.3.1 :002 > users = User.all\
+  User Load (4.8ms)  SELECT "users".* FROM "users"\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :003 > User.create(first_name: "Derek", last_name: "Han", email: "derek@han.com", age: 23)\
+   (0.1ms)  begin transaction\
+  SQL (3.1ms)  INSERT INTO "users" ("first_name", "last_name", "email", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Derek"], ["last_name", "Han"], ["email", "derek@han.com"], ["age", 23], ["created_at", "2018-06-07 13:26:56.068563"], ["updated_at", "2018-06-07 13:26:56.068563"]]\
+   (6.7ms)  commit transaction\
++----+------------+-----------+---------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email         | age | created_at              | updated_at              |\
++----+------------+-----------+---------------+-----+-------------------------+-------------------------+\
+| 2  | Derek      | Han       | derek@han.com | 23  | 2018-06-07 13:26:56 UTC | 2018-06-07 13:26:56 UTC |\
++----+------------+-----------+---------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :004 > users\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :005 > users = User.all\
+  User Load (1.8ms)  SELECT "users".* FROM "users"\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
+| 2  | Derek      | Han       | derek@han.com         | 23  | 2018-06-07 13:26:56 UTC | 2018-06-07 13:26:56 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+2 rows in set\
+2.3.1 :006 > users\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
+| 2  | Derek      | Han       | derek@han.com         | 23  | 2018-06-07 13:26:56 UTC | 2018-06-07 13:26:56 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+2 rows in set\
+2.3.1 :007 > first = User.first\
+  User Load (2.7ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :008 > last = User.last\
+  User Load (2.5ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1\
++----+------------+-----------+---------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email         | age | created_at              | updated_at              |\
++----+------------+-----------+---------------+-----+-------------------------+-------------------------+\
+| 2  | Derek      | Han       | derek@han.com | 23  | 2018-06-07 13:26:56 UTC | 2018-06-07 13:26:56 UTC |\
++----+------------+-----------+---------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :009 > User.order(first_name)\
+NameError: undefined local variable or method `first_name' for main:Object\
+	from (irb):9\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.7/lib/rails/commands/console.rb:110:in `start'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.7/lib/rails/commands/console.rb:9:in `start'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.7/lib/rails/commands/commands_tasks.rb:68:in `console'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.7/lib/rails/commands/commands_tasks.rb:39:in `run_command!'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.7/lib/rails/commands.rb:17:in `<top (required)>'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.7/lib/active_support/dependencies.rb:274:in `require'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.7/lib/active_support/dependencies.rb:274:in `block in require'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.7/lib/active_support/dependencies.rb:240:in `load_dependency'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.7/lib/active_support/dependencies.rb:274:in `require'\
+	from /vagrant/ruby_oop/user_login_project/bin/rails:9:in `<top (required)>'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.7/lib/active_support/dependencies.rb:268:in `load'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.7/lib/active_support/dependencies.rb:268:in `block in load'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.7/lib/active_support/dependencies.rb:240:in `load_dependency'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.7/lib/active_support/dependencies.rb:268:in `load'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-2.0.2/lib/spring/commands/rails.rb:6:in `call'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-2.0.2/lib/spring/command_wrapper.rb:38:in `call'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-2.0.2/lib/spring/application.rb:201:in `block in serve'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-2.0.2/lib/spring/application.rb:171:in `fork'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-2.0.2/lib/spring/application.rb:171:in `serve'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-2.0.2/lib/spring/application.rb:141:in `block in run'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-2.0.2/lib/spring/application.rb:135:in `loop'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-2.0.2/lib/spring/application.rb:135:in `run'\
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-2.0.2/lib/spring/application/boot.rb:19:in `<top (required)>'\
+	from /home/vagrant/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'\
+	from /home/vagrant/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'\
+	from -e:1:in `<main>'\
+2.3.1 :010 > User.order(:first_name)\
+  User Load (2.5ms)  SELECT "users".* FROM "users"  ORDER BY "users"."first_name" ASC\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 2  | Derek      | Han       | derek@han.com         | 23  | 2018-06-07 13:26:56 UTC | 2018-06-07 13:26:56 UTC |\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+2 rows in set\
+2.3.1 :011 > User.order("first_name")\
+  User Load (1.9ms)  SELECT "users".* FROM "users"  ORDER BY first_name\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 2  | Derek      | Han       | derek@han.com         | 23  | 2018-06-07 13:26:56 UTC | 2018-06-07 13:26:56 UTC |\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+2 rows in set\
+2.3.1 :012 > User.order(first_name: :asc)\
+  User Load (2.3ms)  SELECT "users".* FROM "users"  ORDER BY "users"."first_name" ASC\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 2  | Derek      | Han       | derek@han.com         | 23  | 2018-06-07 13:26:56 UTC | 2018-06-07 13:26:56 UTC |\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+2 rows in set\
+2.3.1 :013 > User.order(first_name: :desc)\
+  User Load (3.1ms)  SELECT "users".* FROM "users"  ORDER BY "users"."first_name" DESC\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
+| 2  | Derek      | Han       | derek@han.com         | 23  | 2018-06-07 13:26:56 UTC | 2018-06-07 13:26:56 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+2 rows in set\
+2.3.1 :014 > User.create(first_name: "Casey", last_name: "Tinzong", email: "casey@tingzong.com", age: 25)\
+   (0.2ms)  begin transaction\
+  SQL (10.8ms)  INSERT INTO "users" ("first_name", "last_name", "email", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Casey"], ["last_name", "Tinzong"], ["email", "casey@tingzong.com"], ["age", 25], ["created_at", "2018-06-07 13:34:20.764031"], ["updated_at", "2018-06-07 13:34:20.764031"]]\
+   (10.0ms)  commit transaction\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email              | age | created_at              | updated_at              |\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+| 3  | Casey      | Tinzong   | casey@tingzong.com | 25  | 2018-06-07 13:34:20 UTC | 2018-06-07 13:34:20 UTC |\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :015 > user3 = User.find(3)\
+  User Load (1.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email              | age | created_at              | updated_at              |\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+| 3  | Casey      | Tinzong   | casey@tingzong.com | 25  | 2018-06-07 13:34:20 UTC | 2018-06-07 13:34:20 UTC |\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :016 > user3\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email              | age | created_at              | updated_at              |\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+| 3  | Casey      | Tinzong   | casey@tingzong.com | 25  | 2018-06-07 13:34:20 UTC | 2018-06-07 13:34:20 UTC |\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :017 > user3.last_name = "Flower"\
+ => "Flower"\
+2.3.1 :018 > user3\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email              | age | created_at              | updated_at              |\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+| 3  | Casey      | Flower    | casey@tingzong.com | 25  | 2018-06-07 13:34:20 UTC | 2018-06-07 13:34:20 UTC |\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :019 > user3.save\
+   (0.3ms)  begin transaction\
+  SQL (5.3ms)  UPDATE "users" SET "last_name" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_name", "Flower"], ["updated_at", "2018-06-07 13:36:11.247790"], ["id", 3]]\
+   (9.5ms)  commit transaction\
+ => true\
+2.3.1 :020 > user3\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email              | age | created_at              | updated_at              |\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+| 3  | Casey      | Flower    | casey@tingzong.com | 25  | 2018-06-07 13:34:20 UTC | 2018-06-07 13:36:11 UTC |\
++----+------------+-----------+--------------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :021 > User.create(first_name: "Cameron", last_name: "Riera", email: "cameron@cameron.com", age: 26)\
+   (0.1ms)  begin transaction\
+  SQL (5.2ms)  INSERT INTO "users" ("first_name", "last_name", "email", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["first_name", "Cameron"], ["last_name", "Riera"], ["email", "cameron@cameron.com"], ["age", 26], ["created_at", "2018-06-07 13:37:27.276826"], ["updated_at", "2018-06-07 13:37:27.276826"]]\
+   (3.7ms)  commit transaction\
++----+------------+-----------+---------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email               | age | created_at              | updated_at              |\
++----+------------+-----------+---------------------+-----+-------------------------+-------------------------+\
+| 4  | Cameron    | Riera     | cameron@cameron.com | 26  | 2018-06-07 13:37:27 UTC | 2018-06-07 13:37:27 UTC |\
++----+------------+-----------+---------------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :022 > User.all\
+  User Load (2.6ms)  SELECT "users".* FROM "users"\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
+| 2  | Derek      | Han       | derek@han.com         | 23  | 2018-06-07 13:26:56 UTC | 2018-06-07 13:26:56 UTC |\
+| 3  | Casey      | Flower    | casey@tingzong.com    | 25  | 2018-06-07 13:34:20 UTC | 2018-06-07 13:36:11 UTC |\
+| 4  | Cameron    | Riera     | cameron@cameron.com   | 26  | 2018-06-07 13:37:27 UTC | 2018-06-07 13:37:27 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+4 rows in set\
+2.3.1 :023 > User.find(4).destroy\
+  User Load (2.5ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]\
+   (0.1ms)  begin transaction\
+  SQL (4.5ms)  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 4]]\
+   (7.2ms)  commit transaction\
++----+------------+-----------+---------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email               | age | created_at              | updated_at              |\
++----+------------+-----------+---------------------+-----+-------------------------+-------------------------+\
+| 4  | Cameron    | Riera     | cameron@cameron.com | 26  | 2018-06-07 13:37:27 UTC | 2018-06-07 13:37:27 UTC |\
++----+------------+-----------+---------------------+-----+-------------------------+-------------------------+\
+1 row in set\
+2.3.1 :024 > User.all\
+  User Load (2.5ms)  SELECT "users".* FROM "users"\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| id | first_name | last_name | email                 | age | created_at              | updated_at              |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+| 1  | Steven     | Torrence  | storrence88@gmail.com | 29  | 2018-06-07 13:20:47 UTC | 2018-06-07 13:20:47 UTC |\
+| 2  | Derek      | Han       | derek@han.com         | 23  | 2018-06-07 13:26:56 UTC | 2018-06-07 13:26:56 UTC |\
+| 3  | Casey      | Flower    | casey@tingzong.com    | 25  | 2018-06-07 13:34:20 UTC | 2018-06-07 13:36:11 UTC |\
++----+------------+-----------+-----------------------+-----+-------------------------+-------------------------+\
+3 rows in set}

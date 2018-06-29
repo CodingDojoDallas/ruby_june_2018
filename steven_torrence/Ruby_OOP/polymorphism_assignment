@@ -1,0 +1,38 @@
+1. cd blogs_posts_messages_2
+2. rails g model Comment commentable:references{polymorphic}
+3. rake db:migrate
+4. rails console
+5. Hirb.enable
+6. Comment.new
+7. exit
+8. rails g migration AddContentColumnToComments content:text
+9. rake db:migrate
+10. rails console
+11. Comment.new
+12. Create comments for a User, Blog, Post, and Message:
+
+    Comment.create(commentable: User.first, content: "Comment for the first user")
+    Comment.create(commentable: Blog.first, content: "Comment for the first blog")
+    Comment.create(commentable: Post.first, content: "Comment for the first post")
+    Comment.create(commentable: Message.first, content: "Comment for the first message")
+    
+    ############ OR ############
+
+    Comment.create(commentable_id: 1, commentable_type: "User", content: "Comment for the first user")
+    Comment.create(commentable_id: 2, commentable_type: "Blog", content: "Comment for the first blog")
+    Comment.create(commentable_id: 3, commentable_type: "Post", content: "Comment for the first post")
+    Comment.create(commentable_id: 4, commentable_type: "Message", content: "Comment for the first message")
+
+13. Update comments for a User, Blog, Post, and Message:
+
+    User.first.comments.find(1).update(content: "Updated comment for the first user")
+    Blog.first.comments.find(2).update(content: "Updated comment for the first blog")
+    Post.first.comments.find(3).update(content: "Updated comment for the first post")
+    Message.first.comments.find(4).update(content: "Updated comment for the first message")
+
+14. Delete comments for a User, Blog, Post, and Message:
+
+    User.first.comments.find(1).destroy
+    Blog.first.comments.find(2).destroy
+    Post.first.comments.find(3).destroy
+    Message.first.comments.find(4).destroy

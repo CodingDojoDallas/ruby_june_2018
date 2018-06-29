@@ -1,0 +1,26 @@
+// Place all the styles related to the Times controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+p {
+    margin-left: 500px;
+    margin-right: auto;
+    padding: 15px;
+    text-align: center;
+    border: 2px solid black;
+    display: inline-block;
+}
+
+h1 {
+    padding: 15px;
+    text-align: center;
+    display: inline-block;
+}
+
+div {
+    border: 2px solid black;
+    display: block;
+    width: 200px;
+    margin-left: 350px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
